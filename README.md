@@ -15,7 +15,7 @@ To get started, simply run:
 ```bash
 $ git clone https://github.com/munnerz/venafi-cm-demo.git
 $ cd venafi-cm-demo/
-$ ./setup-demo.sh
+$ ./start-demo.sh
 
 ...
 
