@@ -4,8 +4,9 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-bin="/usr/local/bin"
 SCRIPT_ROOT="$(cd "$(dirname "$0")" && pwd -P)"
+bin="${SCRIPT_ROOT}/bin"
+mkdir -p "${bin}"
 
 echo "+++ Grabbing tools needed for cert-manager demo"
 
