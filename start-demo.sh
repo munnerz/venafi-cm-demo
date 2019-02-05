@@ -71,5 +71,6 @@ echo -e "\e[32mAll components have been deployed!"
 echo
 echo -e "\e[32mPlease run the following command to make 'kubectl' work:"
 echo
-echo -e "\texport KUBECONFIG=$(kind get kubeconfig-path --name "$CLUSTER_NAME")"
+echo -e "\texport PATH=${bin}:\${PATH}"
+echo -e "\texport KUBECONFIG=\$(kind get kubeconfig-path --name "$CLUSTER_NAME")"
 echo

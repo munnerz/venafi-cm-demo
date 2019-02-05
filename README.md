@@ -23,10 +23,31 @@ All components have been deployed!
 
 Please run the following command to make 'kubectl' work:
 
-	export KUBECONFIG=/Users/james/.kube/kind-config-venafi
+	export PATH=/Users/james/go/src/github.com/munnerz/venafi-cm-demo/bin:${PATH}
+	export KUBECONFIG=$(kind get kubeconfig-path --name venafi)
 ```
 
 It may take up to 2 minutes to provision the environment.
+Once the script has completed, you will need to wait until cert-manager
+has finished 'pulling' and has started running.
+
+You can check this by running:
+
+```bash
+$ kubectl get pods -n cert-manager
+NAME                                    READY   STATUS      RESTARTS   AGE
+cert-manager-84678d8c7d-psb8l           1/1     Running     0          26m
+cert-manager-webhook-7bd75779fc-t7nzd   1/1     Running     0          26m
+cert-manager-webhook-ca-sync-4mpmf      0/1     Completed   2          26m
+```
+
+As you can see above, the pods in the 'cert-manager' namespace have all started
+or completed successfully.
+
+It may take a few minutes to start, depending on your internet connection speed.
+
+Once all the pods are running, you should create the Venafi Issuer resource along
+with any corresponding Certificate resources you want to demonstrate.
 
 ## Issues
 
